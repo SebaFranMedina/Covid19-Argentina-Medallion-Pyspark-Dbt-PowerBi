@@ -1,0 +1,22 @@
+name: 'covid19_argentina'
+version: '1.0.0'
+config-version: 2
+
+profile: 'covid19_argentina'
+
+model-paths: ["models"]
+seed-paths: ["seeds"]
+test-paths: ["tests"]
+macro-paths: ["macros"]
+
+target-path: "target"
+clean-targets:
+  - "target"
+  - "dbt_packages"
+
+models:
+  covid19_argentina:
+    staging:
+      +materialized: view
+    marts:
+      +materialized: table

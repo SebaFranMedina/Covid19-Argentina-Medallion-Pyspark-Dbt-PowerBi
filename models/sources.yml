@@ -1,0 +1,8 @@
+version: 2
+
+sources:
+  - name: covid
+    catalog: workspace
+    schema: covid
+    tables:
+      - name: bronze_casos
