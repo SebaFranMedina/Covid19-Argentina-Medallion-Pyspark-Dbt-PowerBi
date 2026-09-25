@@ -1,0 +1,41 @@
+version: 2
+
+models:
+  - name: silver_casos
+    description: "Capa Silver: casos COVID tipados, limpios y deduplicados por id_caso"
+    columns:
+      - name: id_caso
+        description: "Identificador único del caso"
+        tests:
+          - unique
+          - not_null
+
+  - name: dim_provincia
+    description: "Dimensión de provincias"
+    columns:
+      - name: provincia_id
+        tests:
+          - unique
+          - not_null
+
+  - name: dim_departamento
+    description: "Dimensión de departamentos, clave compuesta por nombre + provincia"
+    columns:
+      - name: departamento
+        tests:
+          - not_null
+
+  - name: fact_casos
+    description: "Tabla de hechos: un registro por caso COVID, con métricas de demora"
+    columns:
+      - name: id_caso
+        description: "FK al caso en silver_casos"
+        tests:
+          - unique
+          - not_null
+      - name: fallecido
+        tests:
+          - not_null
+      - name: requirio_uti
+        tests:
+          - not_null
