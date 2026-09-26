@@ -61,7 +61,7 @@ Silver y Gold están implementados **dos veces**, de forma independiente:
 | Transformación (v1) | PySpark |
 | Transformación (v2) | dbt Cloud (dbt-databricks) |
 | Visualización exploratoria | matplotlib |
-| Dashboard | Power BI |
+| Dashboard | Power BI *(pendiente — ver [Estado actual](#estado-actual))* |
 | Control de versiones | GitHub (Databricks Repos + dbt Cloud Git integration) |
 
 ## Capa Silver — criterios de limpieza
@@ -112,6 +112,13 @@ dimensión (`provincia_id`, `departamento`) también testeadas — todos los tes
   casos de alta urgencia, donde la carga administrativa fue apresurada.
 - Los hallazgos de letalidad por sexo y edad son consistentes con los datos oficiales
   publicados por el Ministerio de Salud de Argentina.
+
+## Estado actual
+
+- ✅ Bronze, Silver y Gold completos (PySpark y migración a dbt).
+- ✅ Visualizaciones exploratorias en matplotlib dentro del notebook.
+- ⏳ **Power BI: pendiente.** El dashboard todavía no fue construido — las tablas Gold
+  (`gold_*`) ya están listas en Unity Catalog para conectarse como fuente en cuanto se arme.
 
 ## Evolución del proyecto
 
